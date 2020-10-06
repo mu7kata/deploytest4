@@ -7,7 +7,11 @@ debug('「「「「「「「「「「「「「「「「「「「「「「「「�
 debugLogStart();
 
 require('auth.php');
+if (empty($_SESSION['login_date'])) {
+  debug('ログイン済みユーザーです。');
+  header("Location:ToPage.php");
 
+}
 if (!empty($_POST)) {
   debug('POST送信あり');
   $email = $_POST['email'];
